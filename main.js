@@ -16,8 +16,6 @@ function setDetails(imageUrl, titleText) {
     detailImage.setAttribute('src', imageUrl);
     var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
     detailTitle.textContent = titleText;
-    var previousButton = document.querySelector(DETAIL_PREVIOUS_BUTTON_SELECTOR);
-    var nextButton = document.querySelector(DETAIL_NEXT_BUTTON_SELECTOR);
 }
 
 function imageFromThumb(thumb) {
@@ -50,6 +48,13 @@ function addThumbClickHandler(thumb) {
     });
 }
 
+function getThumbnailsArray() {
+    'use strict';
+    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+    var thumbnailArray = [].slice.call(thumbnails);
+    return thumbnailArray;
+}
+
 function addPreviousClickHandler(previousButton) {
     'use strict';
     previousButton.addEventListener('click', function(event) {
@@ -61,6 +66,12 @@ function addPreviousClickHandler(previousButton) {
         setDetails(imageUrl, titleText);
         showDetails();
     });
+}
+
+function getPreviousButton() {
+    'use strict';
+    var previousButton = document.querySelector(DETAIL_PREVIOUS_BUTTON_SELECTOR);
+    return previousButton;
 }
 
 function addNextClickHandler(nextButton) {
@@ -76,11 +87,10 @@ function addNextClickHandler(nextButton) {
     });
 }
 
-function getThumbnailsArray() {
+function getNextButton() {
     'use strict';
-    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
-    var thumbnailArray = [].slice.call(thumbnails);
-    return thumbnailArray;
+    var nextButton = document.querySelector(DETAIL_NEXT_BUTTON_SELECTOR);
+    return nextButton;
 }
 
 function hideDetails() {
@@ -112,10 +122,14 @@ function addKeyPressHandler() {
 function initializeEvents() {
     'use strict';
     var thumbnails = getThumbnailsArray();
+    var previousButton = getPreviousButton();
+    var nextButton = getNextButton();
     thumbnails.forEach(addThumbClickHandler);
     addKeyPressHandler();
+    var previousButton = getPreviousButton();
+    var nextButton = getNextButton();
     addPreviousClickHandler(previousButton);
-    addNextClickHandle(nextButton);
+    addNextClickHandler(nextButton);
 }
 
 initializeEvents();
