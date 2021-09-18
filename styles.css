@@ -49,10 +49,6 @@ a {
     font-size: 37px;
 }
 
-/*.thumbnail-item + .thumbnail-item {
-    margin-top: 10px;
-}*/
-
 .thumbnail-item {
     display: inline-block;
     min-width: 120px;
@@ -99,6 +95,19 @@ a {
     color: rgb(202, 238, 255);
 
     font-size: 18px;
+}
+
+.previous-button {
+    position: absolute;
+    color: black;
+    transform: scale(5);
+}
+
+.next-button {
+    width: 30px;
+    position: absolute;
+    color: black;
+    transform: scale(5);
 }
 
 .detail-image-container {
