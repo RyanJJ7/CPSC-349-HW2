@@ -63,7 +63,7 @@ function addPreviousClickHandler(previousButton) {
         array = getThumbnailsArray();
         index = index + 4 % array.length;
         thumb = array[index];
-        setDetails(imageUrl, titleText);
+        setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
         showDetails();
     });
 }
@@ -82,7 +82,7 @@ function addNextClickHandler(nextButton) {
         array = getThumbnailsArray();
         index = ++index % array.length;
         thumb = array[index];
-        setDetails(imageUrl, titleText);
+        setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
         showDetails();
     });
 }
