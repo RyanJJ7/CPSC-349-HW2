@@ -1,6 +1,8 @@
 var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
 var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
 var DETAIL_FRAME_SELECTOR = '[data-image-role="frame"]';
+var DETAIL_PREVIOUS_BUTTON_SELECTOR = '[data-image-role="previous"]';
+var DETAIL_NEXT_BUTTON_SELECTOR = '[data-image-role="next"]';
 
 var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 var HIDDEN_DETAIL_CLASS = 'hidden-detail';
@@ -14,6 +16,8 @@ function setDetails(imageUrl, titleText) {
     detailImage.setAttribute('src', imageUrl);
     var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
     detailTitle.textContent = titleText;
+    var previousButton = document.querySelector(DETAIL_PREVIOUS_BUTTON_SELECTOR);
+    var nextButton = document.querySelector(DETAIL_NEXT_BUTTON_SELECTOR);
 }
 
 function imageFromThumb(thumb) {
@@ -54,7 +58,7 @@ function addPreviousClickHandler(previousButton) {
         array = getThumbnailsArray();
         index = index + 4 % array.length;
         thumb = array[index];
-        setDetailsFromThumbIndex();
+        setDetails(imageUrl, titleText);
         showDetails();
     });
 }
@@ -67,7 +71,7 @@ function addNextClickHandler(nextButton) {
         array = getThumbnailsArray();
         index = ++index % array.length;
         thumb = array[index];
-        setDetailsFromThumbIndex();
+        setDetails(imageUrl, titleText);
         showDetails();
     });
 }
