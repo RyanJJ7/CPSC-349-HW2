@@ -53,9 +53,9 @@ function addPreviousClickHandler(previousButton) {
     previousButton.addEventListener('click', function(event) {
         event.preventDefault();
         console.log('previousClicked');
-        array = getThumbnailsArray();
-        index = index + 4 % array.length;
-        thumb = array[index];
+        var array = getThumbnailsArray();
+        index = (index + 4) % array.length;
+        var thumb = array[index];
         setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
         showDetails();
     });
@@ -66,9 +66,9 @@ function addNextClickHandler(nextButton) {
     nextButton.addEventListener('click', function(event) {
         event.preventDefault();
         console.log('nextClicked');
-        array = getThumbnailsArray();
+        var array = getThumbnailsArray();
         index = ++index % array.length;
-        thumb = array[index];
+        var thumb = array[index];
         setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
         showDetails();
     });
