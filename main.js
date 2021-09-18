@@ -48,13 +48,6 @@ function addThumbClickHandler(thumb) {
     });
 }
 
-function getThumbnailsArray() {
-    'use strict';
-    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
-    var thumbnailArray = [].slice.call(thumbnails);
-    return thumbnailArray;
-}
-
 function addPreviousClickHandler(previousButton) {
     'use strict';
     previousButton.addEventListener('click', function(event) {
@@ -68,12 +61,6 @@ function addPreviousClickHandler(previousButton) {
     });
 }
 
-function getPreviousButton() {
-    'use strict';
-    var previousButton = document.querySelector(DETAIL_PREVIOUS_BUTTON_SELECTOR);
-    return previousButton;
-}
-
 function addNextClickHandler(nextButton) {
     'use strict';
     nextButton.addEventListener('click', function(event) {
@@ -85,6 +72,19 @@ function addNextClickHandler(nextButton) {
         setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
         showDetails();
     });
+}
+
+function getThumbnailsArray() {
+    'use strict';
+    var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
+    var thumbnailArray = [].slice.call(thumbnails);
+    return thumbnailArray;
+}
+
+function getPreviousButton() {
+    'use strict';
+    var previousButton = document.querySelector(DETAIL_PREVIOUS_BUTTON_SELECTOR);
+    return previousButton;
 }
 
 function getNextButton() {
@@ -126,8 +126,6 @@ function initializeEvents() {
     var nextButton = getNextButton();
     thumbnails.forEach(addThumbClickHandler);
     addKeyPressHandler();
-    var previousButton = getPreviousButton();
-    var nextButton = getNextButton();
     addPreviousClickHandler(previousButton);
     addNextClickHandler(nextButton);
 }
